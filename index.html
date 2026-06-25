@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby's Plan — O Waze da parentalidade</title>
+  <meta name="description" content="Planeje, acompanhe e compartilhe cada momento da sua gestação. Consultas, enxoval, vacinas, desenvolvimento e muito mais — tudo em um único lugar." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://babysplan.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://babysplan.com/" />
+  <meta property="og:title" content="Baby's Plan — O Waze da parentalidade" />
+  <meta property="og:description" content="Planeje, acompanhe e compartilhe cada momento da sua gestação. Tudo em um único lugar." />
+  <meta property="og:image" content="https://babysplan.com/og-image.png" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Baby's Plan" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Baby's Plan — O Waze da parentalidade" />
+  <meta name="twitter:description" content="Planeje, acompanhe e compartilhe cada momento da sua gestação." />
+  <meta name="twitter:image" content="https://babysplan.com/og-image.png" />
+
+  <!-- PWA / Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#7C3AED" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Baby's Plan",
+    "url": "https://app.babysplan.com",
+    "description": "Aplicativo completo de acompanhamento de gestação para pais modernos.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ── Mobile Menu ─────────────────────────────────────────── -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navegação">
+  <div class="mobile-menu-header">
+    <div class="navbar-logo">
+      <div class="navbar-logo-icon" aria-hidden="true">B</div>
+      <span class="navbar-logo-name">Baby<span>'s Plan</span></span>
+    </div>
+    <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Fechar menu">✕</button>
+  </div>
+  <nav class="mobile-menu-links">
+    <a href="#como-funciona" onclick="closeMobileMenu()">Como funciona</a>
+    <a href="#beneficios" onclick="closeMobileMenu()">Benefícios</a>
+    <a href="#sincronizado" onclick="closeMobileMenu()">Pais juntos</a>
+    <a href="#faq" onclick="closeMobileMenu()">Dúvidas</a>
+  </nav>
+  <div style="margin-top:32px">
+    <a href="https://app.babysplan.com" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">
+      Começar Gratuitamente →
+    </a>
+  </div>
+</div>
+
+<!-- ── Navbar ──────────────────────────────────────────────── -->
+<header>
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-logo" aria-label="Baby's Plan — página inicial">
+        <div class="navbar-logo-icon" aria-hidden="true">B</div>
+        <span class="navbar-logo-name">Baby<span>'s Plan</span></span>
+      </a>
+
+      <ul class="navbar-links" role="list">
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#sincronizado">Pais juntos</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+
+      <div class="navbar-cta">
+        <a href="https://app.babysplan.com" class="btn btn-primary btn-sm">Começar grátis</a>
+        <button class="navbar-menu-btn" onclick="openMobileMenu()" aria-label="Abrir menu" aria-expanded="false" id="menuToggle">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
+            <path d="M1 1h20M1 8h20M1 15h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<section class="hero" aria-labelledby="hero-headline">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge" role="note">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        Gratuito para sempre
+      </div>
+
+      <h1 class="display-1 hero-headline" id="hero-headline">
+        Toda a gestação,<br><em>em um só lugar.</em>
+      </h1>
+
+      <p class="subtitle hero-sub">
+        O Waze da parentalidade. Planeje, acompanhe e compartilhe cada momento com quem você ama — do primeiro dia até o nascimento.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://app.babysplan.com" class="btn btn-primary btn-lg">
+          Começar Gratuitamente
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+          </svg>
+        </a>
+        <a href="#como-funciona" class="btn btn-ghost btn-lg">Ver como funciona</a>
+      </div>
+
+      <p class="hero-note">Sem cartão de crédito. Sem instalação. Funciona em qualquer celular.</p>
+    </div>
+
+    <div class="hero-mockup" aria-label="Visualização do aplicativo Baby's Plan">
+      <div class="hero-mockup-frame">
+        <div class="mockup-placeholder">
+          <div class="mockup-placeholder-icon" aria-hidden="true">📱</div>
+          <p class="mockup-placeholder-text">Screenshot do Baby's Plan</p>
+          <p style="font-size:.8rem;color:#9CA3AF;max-width:280px;text-align:center">
+            Gerencie consultas, enxoval, vacinas e desenvolvimento do bebê em uma interface linda e simples.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Como funciona ───────────────────────────────────────── -->
+<section class="section" id="como-funciona" aria-labelledby="steps-title">
+  <div class="container">
+    <div class="section-header centered">
+      <p class="eyebrow">Como funciona</p>
+      <h2 class="h2" id="steps-title">Simples do início ao fim</h2>
+      <p class="subtitle">Em menos de dois minutos você está pronto para acompanhar cada semana da gestação.</p>
+    </div>
+
+    <div class="steps-grid" role="list">
+      <div class="step-card" role="listitem">
+        <span class="step-number">01</span>
+        <div class="step-icon" aria-hidden="true">🌱</div>
+        <h3 class="step-title">Crie sua conta</h3>
+        <p class="step-desc">Configure a gestação em segundos. Insira a data da última menstruação e descubra a semana atual e a data prevista do parto.</p>
+      </div>
+      <div class="step-card" role="listitem">
+        <span class="step-number">02</span>
+        <div class="step-icon" aria-hidden="true">💌</div>
+        <h3 class="step-title">Convide seu parceiro(a)</h3>
+        <p class="step-desc">Um link simples e seu parceiro ou parceira passa a acompanhar tudo em tempo real, em qualquer celular.</p>
+      </div>
+      <div class="step-card" role="listitem">
+        <span class="step-number">03</span>
+        <div class="step-icon" aria-hidden="true">📋</div>
+        <h3 class="step-title">Planeje juntos</h3>
+        <p class="step-desc">Consultas, enxoval, vacinas, documentos, mala da maternidade — tudo organizado e compartilhado entre o casal.</p>
+      </div>
+      <div class="step-card" role="listitem">
+        <span class="step-number">04</span>
+        <div class="step-icon" aria-hidden="true">💜</div>
+        <h3 class="step-title">Acompanhe o desenvolvimento</h3>
+        <p class="step-desc">Semana a semana, do tamanho de um grão de arroz ao primeiro choro — cada fase documentada com carinho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Benefícios ──────────────────────────────────────────── -->
+<section class="section features-section" id="beneficios" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-header centered">
+      <p class="eyebrow">Tudo que você precisa</p>
+      <h2 class="h2" id="features-title">Um app completo para cada fase</h2>
+      <p class="subtitle">Do planejamento ao nascimento, o Baby's Plan cobre cada detalhe da sua jornada.</p>
+    </div>
+
+    <div class="features-grid">
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📅</div>
+        <h3 class="feature-name">Consultas</h3>
+        <p class="feature-desc">Organize todas as consultas médicas com data, médico e anotações.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">💉</div>
+        <h3 class="feature-name">Vacinas</h3>
+        <p class="feature-desc">Calendário vacinal completo para a mamãe e para o bebê.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">👶</div>
+        <h3 class="feature-name">Desenvolvimento</h3>
+        <p class="feature-desc">Acompanhe o crescimento semana a semana com informações detalhadas.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🛍️</div>
+        <h3 class="feature-name">Enxoval Inteligente</h3>
+        <p class="feature-desc">Lista inteligente que recomenda o que comprar, quando comprar e onde comprar.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🛒</div>
+        <h3 class="feature-name">Brasil × EUA</h3>
+        <p class="feature-desc">Compare preços e descubra quanto economizar comprando nos EUA.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">😴</div>
+        <h3 class="feature-name">Sono</h3>
+        <p class="feature-desc">Registre chutes, contrações e rotinas para acompanhar o bem-estar do bebê.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📄</div>
+        <h3 class="feature-name">Documentos</h3>
+        <p class="feature-desc">Todos os documentos importantes em um lugar seguro e acessível.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📸</div>
+        <h3 class="feature-name">Fotos</h3>
+        <p class="feature-desc">Crie um álbum de memórias da gestação para revisitar sempre.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📝</div>
+        <h3 class="feature-name">Diário</h3>
+        <p class="feature-desc">Registre sentimentos, sintomas e momentos especiais da gravidez.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🏥</div>
+        <h3 class="feature-name">Mala da Maternidade</h3>
+        <p class="feature-desc">Checklist completo para não esquecer nada no grande dia.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">💊</div>
+        <h3 class="feature-name">Sintomas</h3>
+        <p class="feature-desc">Monitore sintomas e compartilhe com seu médico de forma organizada.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📊</div>
+        <h3 class="feature-name">Relatórios</h3>
+        <p class="feature-desc">Exporte um resumo completo da sua gestação em qualquer momento.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Screenshots ─────────────────────────────────────────── -->
+<section class="section section-sm" aria-labelledby="screenshots-title">
+  <div class="container">
+    <div class="section-header centered">
+      <p class="eyebrow">Interface</p>
+      <h2 class="h2" id="screenshots-title">Simples. Bonito. Intuitivo.</h2>
+      <p class="subtitle">Projetado para ser usado durante a gestação — rápido, claro e sem distração.</p>
+    </div>
+
+    <div class="screenshots-grid" role="list">
+      <div class="screenshot-card" role="listitem">
+        <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#F3EEFF,#E0F2FE)">
+          <span style="font-size:2.5rem" aria-hidden="true">🏠</span>
+          <p class="screenshot-label">Dashboard Principal</p>
+        </div>
+      </div>
+      <div class="screenshot-card" role="listitem">
+        <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#FEF3C7,#FCE7F3)">
+          <span style="font-size:2.5rem" aria-hidden="true">🛍️</span>
+          <p class="screenshot-label">Enxoval Inteligente</p>
+        </div>
+      </div>
+      <div class="screenshot-card" role="listitem">
+        <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#DCFCE7,#D1FAE5)">
+          <span style="font-size:2.5rem" aria-hidden="true">👶</span>
+          <p class="screenshot-label">Desenvolvimento do Bebê</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pais sincronizados ───────────────────────────────────── -->
+<section class="section sync-section" id="sincronizado" aria-labelledby="sync-title">
+  <div class="container">
+    <div class="sync-inner">
+      <div>
+        <p class="eyebrow">Diferencial único</p>
+        <h2 class="h2" style="color:white;margin-bottom:16px" id="sync-title">
+          Pai e mãe juntos,<br>sempre sincronizados.
+        </h2>
+        <p class="subtitle">
+          Convide seu parceiro(a) com um toque. Qualquer atualização — consulta marcada, item do enxoval comprado, foto adicionada — aparece instantaneamente para os dois.
+        </p>
+        <div class="sync-badges" role="list">
+          <div class="sync-badge" role="listitem">
+            <span class="sync-badge-icon" aria-hidden="true">⚡</span>
+            Tempo real
+          </div>
+          <div class="sync-badge" role="listitem">
+            <span class="sync-badge-icon" aria-hidden="true">📱</span>
+            Qualquer celular
+          </div>
+          <div class="sync-badge" role="listitem">
+            <span class="sync-badge-icon" aria-hidden="true">🔒</span>
+            Privado e seguro
+          </div>
+          <div class="sync-badge" role="listitem">
+            <span class="sync-badge-icon" aria-hidden="true">🔗</span>
+            Um link para convidar
+          </div>
+        </div>
+      </div>
+
+      <div class="sync-visual" role="img" aria-label="Dois pais conectados pelo Baby's Plan">
+        <div class="sync-avatars">
+          <div class="sync-avatar" style="background:linear-gradient(135deg,#7C3AED,#EC4899)" aria-label="Mamãe">👩</div>
+          <div style="width:24px"></div>
+          <div class="sync-avatar" style="background:linear-gradient(135deg,#0EA5E9,#7C3AED)" aria-label="Papai">👨</div>
+        </div>
+        <div class="sync-connect-line" aria-hidden="true">
+          <div class="sync-line"></div>
+          <div class="sync-dot"></div>
+          <div class="sync-line"></div>
+        </div>
+        <p class="sync-status">
+          <span class="sync-pulse" aria-hidden="true"></span>
+          Conectados agora · Baby's Plan
+        </p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.35);margin-top:8px">
+          Sincronização em tempo real via Supabase
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────────────── -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-header centered">
+      <p class="eyebrow">Dúvidas frequentes</p>
+      <h2 class="h2" id="faq-title">Temos as respostas</h2>
+    </div>
+
+    <ul class="faq-list" role="list">
+      <li class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">O Baby's Plan é gratuito?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Sim, completamente gratuito. Sem planos pagos, sem limite de funcionalidades e sem cartão de crédito. O Baby's Plan foi criado para ser acessível a todas as famílias.</p>
+        </div>
+      </li>
+      <li class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Funciona no iPhone e no Android?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Sim. O Baby's Plan é um Progressive Web App (PWA). Funciona em qualquer celular com navegador moderno — iPhone, Android, tablets e desktop. Você pode instalar na tela inicial como se fosse um app nativo.</p>
+        </div>
+      </li>
+      <li class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Como convido meu parceiro(a)?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Dentro do app, vá em Configurações → Convidar parceiro(a). Um link único é gerado e você pode enviar por WhatsApp, email ou qualquer mensageiro. Ao aceitar, seu parceiro passa a ver e editar tudo em tempo real.</p>
+        </div>
+      </li>
+      <li class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Meus dados estão seguros?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Sim. Os dados são armazenados de forma criptografada no Supabase, com autenticação segura e políticas de acesso por família. Nenhum dado é compartilhado com terceiros ou utilizado para publicidade.</p>
+        </div>
+      </li>
+      <li class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Funciona sem internet?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>O app funciona parcialmente offline graças ao service worker PWA. Consultas e listas já carregadas ficam disponíveis. Novas informações são sincronizadas assim que a conexão é restabelecida.</p>
+        </div>
+      </li>
+      <li class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-q">Posso exportar meus dados?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p>Sim. Na seção Relatórios, você pode exportar um resumo completo da sua gestação em formato CSV — incluindo consultas, sintomas, enxoval e linha do tempo.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── CTA final ───────────────────────────────────────────── -->
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 class="display-2" id="cta-title">Comece hoje, é grátis.</h2>
+    <p class="subtitle">Junte-se a famílias que já usam o Baby's Plan para viver a gestação com mais leveza e organização.</p>
+    <a href="https://app.babysplan.com" class="btn btn-white btn-lg">
+      Criar conta gratuita →
+    </a>
+    <p class="cta-note">Sem cartão de crédito · Funciona em qualquer celular · Dados 100% seguros</p>
+  </div>
+</section>
+
+<!-- ── Footer ──────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon" aria-hidden="true">B</div>
+          <span class="footer-logo-name">Baby's Plan</span>
+        </div>
+        <p class="footer-tagline">"O Waze da parentalidade." — planeje, acompanhe e compartilhe cada momento da gestação.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <p class="footer-col-title">Produto</p>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#beneficios">Funcionalidades</a>
+          <a href="#faq">Perguntas frequentes</a>
+          <a href="https://app.babysplan.com">Entrar no app</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Legal</p>
+          <a href="/privacy.html">Política de Privacidade</a>
+          <a href="/terms.html">Termos de Uso</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Contato</p>
+          <a href="mailto:contato@babysplan.com">contato@babysplan.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© <span id="year"></span> Baby's Plan. Todos os direitos reservados.</p>
+      <p style="font-size:.8125rem">Feito com 💜 para famílias</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.getElementById('menuToggle').setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('menuToggle').setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
+</body>
+</html>

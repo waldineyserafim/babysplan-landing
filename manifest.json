@@ -1,0 +1,9 @@
+{
+  "name": "Baby's Plan",
+  "short_name": "Baby's Plan",
+  "description": "O Waze da parentalidade.",
+  "start_url": "https://app.babysplan.com/",
+  "display": "browser",
+  "theme_color": "#7C3AED",
+  "background_color": "#FDFCFB"
+}
