@@ -69,10 +69,10 @@ ul { list-style: none; }
   text-decoration: none;
 }
 .btn-primary {
-  background: var(--gradient); color: var(--white);
-  box-shadow: 0 4px 14px rgba(124,58,237,.35);
+  background: #0D9488; color: var(--white);
+  box-shadow: 0 4px 14px rgba(13,148,136,.35);
 }
-.btn-primary:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124,58,237,.4); }
+.btn-primary:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(13,148,136,.4); }
 .btn-ghost {
   color: var(--text-muted); background: transparent;
   border: 1.5px solid var(--border); padding: 12px 24px;
@@ -299,7 +299,7 @@ ul { list-style: none; }
 .cta-section .display-2 { color: var(--white); }
 .cta-section .subtitle { color: rgba(255,255,255,.75); max-width: 480px; margin: 0 auto 36px; }
 .btn-white {
-  background: var(--white); color: var(--violet); font-weight: 700;
+  background: var(--white); color: #0D9488; font-weight: 700;
   box-shadow: 0 4px 20px rgba(0,0,0,.2);
 }
 .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.25); }
