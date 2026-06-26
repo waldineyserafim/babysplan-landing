@@ -101,7 +101,7 @@ ul { list-style: none; }
   width: 36px; height: 36px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.navbar-logo-icon svg { width: 36px; height: 36px; }
+.navbar-logo-icon img { width: 36px; height: 36px; object-fit: contain; }
 .navbar-logo-name { font-size: 1rem; font-weight: 700; font-family: 'Manrope', 'Inter', system-ui, sans-serif; color: var(--teal); }
 .navbar-logo-name span { color: var(--coral); }
 .navbar-links { display: none; }
@@ -324,7 +324,7 @@ footer {
   display: flex; align-items: center; justify-content: center;
   background: rgba(255,255,255,.12); border-radius: 8px; padding: 3px;
 }
-.footer-logo-icon svg { width: 26px; height: 26px; }
+.footer-logo-icon img { width: 26px; height: 26px; object-fit: contain; }
 .footer-logo-name { font-weight: 700; font-family: 'Manrope', 'Inter', system-ui, sans-serif; color: var(--white); font-size: 0.9375rem; }
 .footer-tagline { font-size: 0.875rem; line-height: 1.6; max-width: 240px; }
 .footer-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
