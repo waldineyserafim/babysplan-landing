@@ -146,12 +146,13 @@ ul { list-style: none; }
 }
 .mockup-placeholder {
   background: linear-gradient(135deg, #F3EEFF 0%, #FEE2F0 50%, #E0F2FE 100%);
-  height: 400px; display: flex; flex-direction: column;
+  aspect-ratio: 16 / 9; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 16px;
   padding: 40px;
 }
 .mockup-placeholder-icon { font-size: 3rem; }
 .mockup-placeholder-text { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+.mockup-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mockup-placeholder-bar {
   position: absolute; top: 0; left: 0; right: 0;
   height: 40px; background: rgba(255,255,255,.8);
@@ -204,21 +205,11 @@ ul { list-style: none; }
 .feature-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; }
 
 /* ── Screenshots ──────────────────────────────────────────── */
-.screenshots-grid {
-  display: grid; grid-template-columns: 1fr;
-  gap: 16px; margin-top: 56px;
-}
-.screenshot-card {
-  border-radius: var(--radius-lg); overflow: hidden;
+.screenshot-showcase {
+  margin-top: 56px; border-radius: var(--radius-lg); overflow: hidden;
   border: 1.5px solid var(--border); box-shadow: var(--shadow-sm);
 }
-.screenshot-placeholder {
-  height: 280px; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 12px;
-}
-.screenshot-label {
-  font-size: 0.8125rem; font-weight: 600; color: var(--text-muted); text-align: center;
-}
+.screenshot-showcase-img { width: 100%; height: auto; display: block; }
 
 /* ── Sync section ─────────────────────────────────────────── */
 .sync-section { background: var(--text); color: var(--white); overflow: hidden; }
@@ -390,7 +381,6 @@ footer {
   .step-card:nth-child(2) { border-radius: 0 var(--radius-lg) 0 0; }
   .step-card:nth-last-child(2) { border-radius: 0 0 0 var(--radius-lg); }
   .step-card:last-child { border-radius: 0 0 var(--radius-lg) 0; }
-  .screenshots-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (min-width: 768px) {
@@ -404,10 +394,7 @@ footer {
 
 @media (min-width: 1024px) {
   .hero { padding: 112px 0 80px; }
-  .mockup-placeholder { height: 500px; }
   .features-grid { grid-template-columns: repeat(4, 1fr); }
-  .screenshots-grid { grid-template-columns: repeat(3, 1fr); }
-  .screenshot-placeholder { height: 360px; }
   .sync-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .sync-visual { margin-top: 0; }
   .steps-grid { grid-template-columns: repeat(4, 1fr); }
