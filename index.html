@@ -141,13 +141,14 @@
 
     <div class="hero-mockup" aria-label="Visualização do aplicativo Baby's Plan">
       <div class="hero-mockup-frame">
-        <div class="mockup-placeholder">
-          <div class="mockup-placeholder-icon" aria-hidden="true">📱</div>
-          <p class="mockup-placeholder-text">Screenshot do Baby's Plan</p>
-          <p style="font-size:.8rem;color:#9CA3AF;max-width:280px;text-align:center">
-            Gerencie consultas, enxoval, vacinas e desenvolvimento do bebê em uma interface linda e simples.
-          </p>
-        </div>
+        <img
+          class="mockup-img"
+          src="images/screenshots-showcase.jpg"
+          alt="Telas do Baby's Plan: dashboard inicial, jornada da gestação, guia com IA e visão web sincronizada"
+          loading="eager"
+          width="1536"
+          height="1024"
+        />
       </div>
     </div>
   </div>
@@ -274,15 +275,25 @@
       <p class="subtitle">Projetado para ser usado durante a gestação — rápido, claro e sem distração.</p>
     </div>
 
-    <div class="screenshot-showcase">
-      <img
-        class="screenshot-showcase-img"
-        src="images/screenshots-showcase.jpg"
-        alt="Telas do Baby's Plan: dashboard inicial, jornada da gestação, guia com IA e visão web sincronizada"
-        loading="lazy"
-        width="1536"
-        height="1024"
-      />
+    <div class="screenshots-grid" role="list">
+      <div class="screenshot-card" role="listitem">
+        <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#F3EEFF,#E0F2FE)">
+          <span style="font-size:2.5rem" aria-hidden="true">🏠</span>
+          <p class="screenshot-label">Dashboard Principal</p>
+        </div>
+      </div>
+      <div class="screenshot-card" role="listitem">
+        <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#FEF3C7,#FCE7F3)">
+          <span style="font-size:2.5rem" aria-hidden="true">🛍️</span>
+          <p class="screenshot-label">Enxoval Inteligente</p>
+        </div>
+      </div>
+      <div class="screenshot-card" role="listitem">
+        <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#DCFCE7,#D1FAE5)">
+          <span style="font-size:2.5rem" aria-hidden="true">👶</span>
+          <p class="screenshot-label">Desenvolvimento do Bebê</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
