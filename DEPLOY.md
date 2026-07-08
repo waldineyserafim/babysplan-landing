@@ -195,11 +195,26 @@ Para um blog dinâmico no futuro:
 
 ---
 
+## 7.1 Regenerar a imagem de Open Graph (`og-image.png`)
+
+`images/og-image.png` é gerado a partir de `images/og-image-source.html` (não servido no site, só usado como fonte de design) via Chrome headless — sem nenhuma dependência de build:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --hide-scrollbars --window-size=1200,630 \
+  --screenshot="$(pwd)/images/og-image.png" \
+  "file://$(pwd)/images/og-image-source.html"
+```
+
+Edite o HTML/CSS de `og-image-source.html` e rode o comando novamente sempre que a headline principal da Landing mudar.
+
+---
+
 ## 8. Estrutura de arquivos
 
 ```
 babysplan-landing/
-├── index.html              # Landing page principal
+├── index.html              # Landing page principal (V2 — Copiloto de Jornada)
 ├── privacy.html            # Política de Privacidade
 ├── terms.html              # Termos de Uso
 ├── CNAME                   # babysplan.com
@@ -209,6 +224,12 @@ babysplan-landing/
 ├── favicon.svg
 ├── css/
 │   └── style.css
+├── js/
+│   └── main.js             # vanilla JS: menu, FAQ, scroll-reveal, Momento WOW, analytics
+├── images/
+│   ├── screenshots-showcase.jpg
+│   ├── og-image.png            # gerado a partir de og-image-source.html (ver abaixo)
+│   └── og-image-source.html    # fonte reproduzível do og-image.png (não é servida no site)
 └── .github/
     └── workflows/
         └── deploy.yml

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @font-face {
+    font-family: 'Manrope';
+    src: local('Manrope');
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px; overflow: hidden;
+    font-family: 'Manrope', 'Arial', sans-serif;
+  }
+  .canvas {
+    width: 1200px; height: 630px;
+    background: linear-gradient(135deg, #F0FDFA 0%, #FAFAF8 55%, #FFF7F5 100%);
+    position: relative;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 90px;
+  }
+  .path-bg {
+    position: absolute; inset: 0; width: 1200px; height: 630px;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #EDE9FE; color: #7C3AED;
+    border-radius: 100px; padding: 10px 22px;
+    font-size: 20px; font-weight: 700; width: fit-content;
+    margin-bottom: 32px;
+  }
+  .badge-dot { width: 10px; height: 10px; border-radius: 50%; background: #7C3AED; }
+  h1 {
+    font-size: 58px; font-weight: 800; color: #243447;
+    line-height: 1.12; letter-spacing: -0.02em; max-width: 920px;
+    margin-bottom: 22px;
+  }
+  h1 em { font-style: normal; color: #7C3AED; }
+  p {
+    font-size: 26px; color: #6B7280; max-width: 780px; line-height: 1.5;
+    font-family: 'Arial', sans-serif; font-weight: 500;
+  }
+  .brand {
+    position: absolute; bottom: 56px; left: 90px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand-mark {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, #4FB6AC, #F28C82);
+  }
+  .brand-name { font-size: 24px; font-weight: 800; color: #243447; }
+  .brand-name span { color: #F28C82; }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <svg class="path-bg" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-20,520 C250,420 350,560 550,460 C750,360 850,540 1050,440 C1150,390 1180,430 1240,400"
+        stroke="#7C3AED" stroke-width="3" stroke-linecap="round" opacity="0.18" fill="none"/>
+      <circle cx="550" cy="460" r="7" fill="#F28C82" opacity="0.4"/>
+      <circle cx="1050" cy="440" r="7" fill="#4FB6AC" opacity="0.4"/>
+    </svg>
+    <div class="badge"><span class="badge-dot"></span>O copiloto da sua jornada de gestação</div>
+    <h1>Toda gravidez tem uma rota própria.<br><em>Conheça o Motor da Jornada.</em></h1>
+    <p>Baby's Plan adapta consultas, enxoval e um guia de IA à sua condição — gêmeos, FIV, alto risco ou primeira vez.</p>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">Baby's <span>Plan</span></div>
+    </div>
+  </div>
+</body>
+</html>
