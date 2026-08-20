@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/style.css?v=4" />
+  <link rel="stylesheet" href="/css/style.css?v=5" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -144,6 +144,7 @@
     <symbol id="icon-zap" viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
     <symbol id="icon-document" viewBox="0 0 24 24"><path d="M7 2h7l4 4v16H7V2z"/><path d="M14 2v4h4"/><path d="M9 12h6M9 16h6"/></symbol>
     <symbol id="icon-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+    <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></symbol>
   </defs>
 </svg>
 
@@ -374,6 +375,36 @@
   </div>
 </section>
 
+<!-- ── Diferenciação ────────────────────────────────────────── -->
+<section class="section diff-section" id="diferenca" aria-labelledby="diferenca-title">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <p class="eyebrow">Uma categoria diferente</p>
+      <h2 class="h2" id="diferenca-title">Não é mais um aplicativo de gravidez.</h2>
+      <p class="subtitle">Outros aplicativos ajudam você a acompanhar o que está acontecendo. O Baby's Plan ajuda você a entender o que fazer a seguir.</p>
+    </div>
+
+    <div class="diff-compare" data-reveal>
+      <div class="diff-col diff-col-before">
+        <p class="diff-col-label">Aplicativo tradicional</p>
+        <p class="diff-mock-week">Você está na semana 24.</p>
+        <p class="diff-mock-note">E agora? Você decide sozinha.</p>
+      </div>
+      <div class="diff-col diff-col-after">
+        <p class="diff-col-label">Baby's Plan</p>
+        <p class="diff-mock-week">Você está na semana 24.</p>
+        <ul class="diff-mock-list" role="list">
+          <li class="diff-mock-line is-done"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg> Consulta registrada</li>
+          <li class="diff-mock-line is-done"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg> Exame registrado</li>
+          <li class="diff-mock-line is-done"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg> Enxoval 62% concluído</li>
+          <li class="diff-mock-line is-next"><svg class="icon-sm" aria-hidden="true"><use href="#icon-route"/></svg> Seu próximo passo: agendar o ultrassom morfológico</li>
+        </ul>
+        <p class="diff-mock-illustrative">Exemplo ilustrativo — sua jornada real é montada a partir do seu plano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Capítulo 4 · Como Funciona ──────────────────────────── -->
 <section class="section" id="como-funciona" aria-labelledby="steps-title">
   <div class="container">
@@ -408,6 +439,40 @@
         <h3 class="step-title">Acompanhe semana a semana</h3>
         <p class="step-desc">Do tamanho de um grão de arroz ao primeiro choro — cada fase documentada com o Guia de Jornada por perto.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Smart Missions / Próximo Passo ──────────────────────── -->
+<section class="section missions-section" id="proximos-passos" aria-labelledby="missions-title">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <p class="eyebrow">Nunca mais "e agora?"</p>
+      <h2 class="h2" id="missions-title">Nunca mais se pergunte: "e agora?"</h2>
+      <p class="subtitle">O Baby's Plan olha para o momento da sua jornada e organiza as próximas ações por prioridade.</p>
+    </div>
+
+    <div class="missions-panel" data-reveal>
+      <p class="missions-panel-title">Seus próximos passos</p>
+      <ul class="missions-list" role="list">
+        <li class="mission-row is-done" role="listitem">
+          <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
+          <span>Agendar consulta do segundo trimestre</span>
+        </li>
+        <li class="mission-row is-done" role="listitem">
+          <svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>
+          <span>Registrar exame de rotina</span>
+        </li>
+        <li class="mission-row is-current" role="listitem">
+          <svg class="icon" aria-hidden="true"><use href="#icon-route"/></svg>
+          <span>Organizar itens essenciais do enxoval</span>
+        </li>
+        <li class="mission-row is-pending" role="listitem">
+          <svg class="icon" aria-hidden="true"><use href="#icon-circle"/></svg>
+          <span>Preparar documentos da maternidade</span>
+        </li>
+      </ul>
+      <p class="missions-illustrative">Exemplo ilustrativo — seus próximos passos reais mudam conforme sua jornada.</p>
     </div>
   </div>
 </section>
@@ -609,6 +674,60 @@
           <span class="sync-pulse" aria-hidden="true"></span>
           Vivendo isso juntos
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quadro Comparativo ──────────────────────────────────── -->
+<section class="section compare-section" id="comparativo" aria-labelledby="comparativo-title">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <p class="eyebrow">A diferença</p>
+      <h2 class="h2" id="comparativo-title">A diferença não está em ter mais uma lista.</h2>
+      <p class="subtitle">Está em saber o que fazer com ela.</p>
+    </div>
+
+    <div class="compare-table-wrap" data-reveal>
+      <table class="compare-table">
+        <caption class="sr-only">Comparação entre aplicativos tradicionais de gravidez e o Baby's Plan</caption>
+        <thead>
+          <tr>
+            <th scope="col">Recurso</th>
+            <th scope="col">Aplicativos tradicionais</th>
+            <th scope="col">Baby's Plan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Acompanhar semana a semana</th><td>Sim</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Desenvolvimento do bebê</th><td>Sim</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Conteúdo educativo</th><td>Sim</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Registrar consultas</th><td>Alguns</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Registrar exames</th><td>Alguns</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Organizar documentos</th><td>Limitado</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Enxoval</th><td>Checklist</td><td class="is-yes">Inteligente</td></tr>
+          <tr><th scope="row">Orçamento do enxoval</th><td>Limitado</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Jornada personalizada</th><td>Limitada</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Próximos passos priorizados</th><td>—</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Guia contextual com IA</th><td>Varia</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Linha do tempo da jornada</th><td>Limitado</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Memórias</th><td>Sim</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Compartilhamento familiar</th><td>Varia</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Plano de parto</th><td>Alguns</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+          <tr><th scope="row">Bolsa maternidade</th><td>Alguns</td><td class="is-yes"><svg class="icon-sm" aria-hidden="true"><use href="#icon-check"/></svg></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="compare-shift" data-reveal>
+      <p class="compare-shift-lead">De informação para orientação. De checklist para jornada.</p>
+      <div class="compare-shift-grid">
+        <div class="compare-shift-row"><span class="compare-shift-before">"O que está acontecendo?"</span><span class="compare-shift-after">"O que está acontecendo?"</span></div>
+        <div class="compare-shift-row"><span class="compare-shift-before">"O que eu deveria fazer?"</span><span class="compare-shift-after">"Aqui está seu próximo passo."</span></div>
+        <div class="compare-shift-row"><span class="compare-shift-before">"O que falta?"</span><span class="compare-shift-after">"Nós organizamos o que falta."</span></div>
+        <div class="compare-shift-row"><span class="compare-shift-before">"Onde encontro essa informação?"</span><span class="compare-shift-after">"Seu Guia conhece sua jornada."</span></div>
+        <div class="compare-shift-row"><span class="compare-shift-before">"O que compro?"</span><span class="compare-shift-after">"Veja o que faz sentido para o seu momento."</span></div>
+        <div class="compare-shift-row"><span class="compare-shift-before">"Estou atrasada?"</span><span class="compare-shift-after">"Veja o que realmente importa agora."</span></div>
       </div>
     </div>
   </div>
