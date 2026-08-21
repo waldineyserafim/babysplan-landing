@@ -8,14 +8,107 @@
   'use strict';
 
   /* ── Analytics harness ──────────────────────────────────────
-     TODO: substituir pelos IDs reais antes de publicar.
-     Enquanto os IDs forem os placeholders abaixo, nenhum script
-     de terceiro é carregado e nenhuma chamada de rede é feita —
-     os eventos só são registrados em window.dataLayer. */
+     GA4/Clarity: TODO substituir pelos IDs reais antes de publicar — exigem criar uma
+     property numa conta Google/Microsoft externa, fora do alcance deste código. Enquanto
+     os IDs forem os placeholders abaixo, nenhum script de terceiro é carregado.
+
+     LANDING_COLLECT_URL: pipeline first-party real (mesmo Supabase do App, ver
+     supabase/functions/landing-collect no repo baby-journey-app) — funciona hoje, sem
+     depender de nenhuma conta externa. Aponta para o projeto Supabase de Produção
+     (dcyjmkhhoohbhriondwy), a mesma função implantada em
+     supabase/functions/landing-collect no repo baby-journey-app. */
   var ANALYTICS_CONFIG = {
     GA4_ID: 'G-XXXXXXX',
-    CLARITY_ID: 'XXXXXXXX'
+    CLARITY_ID: 'XXXXXXXX',
+    LANDING_COLLECT_URL: 'https://dcyjmkhhoohbhriondwy.supabase.co/functions/v1/landing-collect'
   };
+
+  var CONSENT_KEY = 'bp_consent';
+  var VISITOR_KEY = 'bp_landing_ref';
+  var SESSION_KEY = 'bp_session_id';
+
+  function randomId(prefix) {
+    return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  function getVisitorId() {
+    try {
+      var id = localStorage.getItem(VISITOR_KEY);
+      if (!id) {
+        id = randomId('lp');
+        localStorage.setItem(VISITOR_KEY, id);
+      }
+      return id;
+    } catch (e) {
+      return randomId('lp');
+    }
+  }
+
+  function getSessionId() {
+    try {
+      var id = sessionStorage.getItem(SESSION_KEY);
+      if (!id) {
+        id = randomId('s');
+        sessionStorage.setItem(SESSION_KEY, id);
+      }
+      return id;
+    } catch (e) {
+      return randomId('s');
+    }
+  }
+
+  function getConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* ignore */ }
+  }
+
+  function getDeviceType() {
+    var w = window.innerWidth;
+    if (w < 768) return 'mobile';
+    if (w < 1024) return 'tablet';
+    return 'desktop';
+  }
+
+  function getUtmParams() {
+    var params = new URLSearchParams(window.location.search);
+    return {
+      utm_source: params.get('utm_source'),
+      utm_medium: params.get('utm_medium'),
+      utm_campaign: params.get('utm_campaign')
+    };
+  }
+
+  /* Envio ao pipeline first-party — best-effort, nunca bloqueia a navegação. Só envia se
+     houver consentimento explícito e o navegador não pedir Do Not Track. */
+  function sendLandingEvent(eventName, properties) {
+    if (navigator.doNotTrack === '1') return;
+    if (getConsent() !== 'granted') return;
+
+    var utm = getUtmParams();
+    var payload = {
+      event_name: eventName,
+      session_ref: getVisitorId(),
+      session_id: getSessionId(),
+      path: window.location.pathname,
+      referrer: document.referrer || null,
+      utm_source: utm.utm_source,
+      utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign,
+      device_type: getDeviceType(),
+      properties: properties || {}
+    };
+
+    try {
+      fetch(ANALYTICS_CONFIG.LANDING_COLLECT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function () { /* best-effort, silencioso */ });
+    } catch (e) { /* ambiente sem fetch — silencioso */ }
+  }
 
   window.dataLayer = window.dataLayer || [];
   function track(eventName, params) {
@@ -23,6 +116,7 @@
     if (window.gtag) {
       window.gtag('event', eventName, params || {});
     }
+    sendLandingEvent(eventName, params);
   }
 
   function loadAnalytics() {
@@ -44,6 +138,85 @@
     }
   }
   loadAnalytics();
+
+  /* ── Barra de consentimento (LGPD) ───────────────────────────
+     Sem escolha registrada: nenhum evento é enviado (sendLandingEvent checa getConsent()
+     acima). A barra só aparece uma vez; a escolha fica em localStorage. */
+  function renderConsentBanner() {
+    if (getConsent() !== null) return;
+    if (navigator.doNotTrack === '1') { setConsent('denied'); return; }
+
+    var bar = document.createElement('div');
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Consentimento de cookies e analytics');
+    bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0F172A;' +
+      'color:#fff;padding:1rem;display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;' +
+      'justify-content:space-between;font-size:0.85rem;box-shadow:0 -2px 12px rgba(0,0,0,0.15);';
+    bar.innerHTML =
+      '<span style="flex:1 1 260px;min-width:0;">Usamos dados anônimos de navegação (sem cookies de terceiros) ' +
+      'para entender como melhorar o Baby\'s Plan. <a href="privacy.html" style="color:#93C5FD;">Saiba mais</a>.</span>' +
+      '<span style="display:flex;gap:0.5rem;flex-shrink:0;">' +
+      '<button type="button" data-consent="denied" style="background:transparent;color:#fff;border:1px solid #475569;' +
+      'border-radius:6px;padding:0.5rem 0.9rem;cursor:pointer;">Recusar</button>' +
+      '<button type="button" data-consent="granted" style="background:#0D9488;color:#fff;border:none;' +
+      'border-radius:6px;padding:0.5rem 0.9rem;cursor:pointer;font-weight:600;">Aceitar</button>' +
+      '</span>';
+    document.body.appendChild(bar);
+
+    bar.querySelectorAll('[data-consent]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setConsent(btn.getAttribute('data-consent'));
+        bar.remove();
+        if (btn.getAttribute('data-consent') === 'granted') {
+          sendLandingEvent('page_view', { chapter: 'entry' });
+        }
+      });
+    });
+  }
+  renderConsentBanner();
+  if (getConsent() === 'granted') sendLandingEvent('page_view', { chapter: 'entry' });
+
+  /* ── UTM/ref passthrough para o App ──────────────────────────
+     Propaga utm_source/utm_medium/utm_campaign/ref em todo link para app.babysplan.com —
+     é a chave de join com profiles.acquisition_source->>'ref' no funil consolidado. */
+  function decorateAppLinks() {
+    var visitorId = getVisitorId();
+    document.querySelectorAll('a[href^="https://app.babysplan.com"]').forEach(function (a) {
+      var url;
+      try { url = new URL(a.getAttribute('href')); } catch (e) { return; }
+      if (!url.searchParams.has('utm_source')) url.searchParams.set('utm_source', 'babysplan_landing');
+      if (!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', 'cta');
+      if (!url.searchParams.has('utm_campaign')) {
+        url.searchParams.set('utm_campaign', a.dataset.analyticsSource || a.dataset.analytics || 'landing_v3');
+      }
+      url.searchParams.set('ref', visitorId);
+      a.setAttribute('href', url.toString());
+    });
+  }
+  decorateAppLinks();
+
+  /* ── Scroll depth 25/50/75/90% ───────────────────────────────
+     Cada marco dispara 1 vez por carregamento de página. */
+  (function trackScrollDepth() {
+    var thresholds = [25, 50, 75, 90];
+    var fired = {};
+    function onScroll() {
+      var doc = document.documentElement;
+      var scrollable = doc.scrollHeight - doc.clientHeight;
+      if (scrollable <= 0) return;
+      var pct = Math.round((window.scrollY / scrollable) * 100);
+      thresholds.forEach(function (t) {
+        if (pct >= t && !fired[t]) {
+          fired[t] = true;
+          track('scroll_depth', { depth: t });
+        }
+      });
+      if (thresholds.every(function (t) { return fired[t]; })) {
+        window.removeEventListener('scroll', onScroll);
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
 
   /* ── Ano no footer ──────────────────────────────────────── */
   var yearEl = document.getElementById('year');
